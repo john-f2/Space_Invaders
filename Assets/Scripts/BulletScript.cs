@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour
+public class BulletScript : MonoBehaviour
 {
     //speed variable, used to adjust the speed of the bullet 
     [SerializeField] protected float bulletSpeed = 5.0f;
@@ -37,6 +37,7 @@ public class bulletScript : MonoBehaviour
             Debug.Log("Enemy has been hit");
             //when enemy is hit destory the gameObject
             Destroy(col.gameObject);
+            Destroy(this.gameObject);
         }
 
     }

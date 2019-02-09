@@ -9,7 +9,7 @@ using UnityEngine;
  * 
  * 
  */
-public class shipMovementScript : MonoBehaviour
+public class ShipMovementScript : MonoBehaviour
 {
 
     [SerializeField] protected float playerSpeed = 5.0f;
