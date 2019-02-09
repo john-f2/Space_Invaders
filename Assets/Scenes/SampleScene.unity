@@ -835,6 +835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342349813}
   - component: {fileID: 1342349814}
+  - component: {fileID: 1342349815}
   m_Layer: 0
   m_Name: level_manager
   m_TagString: Untagged
@@ -876,6 +877,19 @@ MonoBehaviour:
     type: 3}
   enemyPrefab3: {fileID: 2789885887768207836, guid: 184bc1f9a29264c4ca5c5d3d7a87ac09,
     type: 3}
+--- !u!114 &1342349815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342349812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566a4740e488f4c358f5093f5aefe17b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreUIObject: {fileID: 1118272659}
 --- !u!1 &1367793919
 GameObject:
   m_ObjectHideFlags: 0
