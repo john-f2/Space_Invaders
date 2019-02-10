@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6938512004021471240}
   - component: {fileID: 2714526915830019069}
   - component: {fileID: 419493359184757441}
+  - component: {fileID: 5330982405363312791}
   m_Layer: 0
   m_Name: enemy_object_1
   m_TagString: Enemy
@@ -106,3 +107,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &5330982405363312791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498738177601931736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fcd1a3ceee054ec7b559a810f078b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBulletPrefab: {fileID: 8987786443428768016, guid: 59c1252416e744e6ca7cd47a718c14d3,
+    type: 3}
+  scoreValue: 10

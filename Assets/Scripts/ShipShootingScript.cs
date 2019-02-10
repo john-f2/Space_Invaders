@@ -17,14 +17,14 @@ public class ShipShootingScript : MonoBehaviour
 
 
     //these functions are used to limit the rate of fire 
-    [SerializeField] protected float rateOfFire = 0.5f;
+    [SerializeField] protected float rateOfFire = 0.7f;
     private float lastShot = 0.0f;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
 
