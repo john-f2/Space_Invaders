@@ -21,6 +21,7 @@ public class BulletScript : MonoBehaviour
 
     //unity event for score update
     public IntUnityEvent onScoreUpdate = new IntUnityEvent();
+    public UnityEvent onEnemylivesUpdate = new UnityEvent();
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class BulletScript : MonoBehaviour
         bulletRigidBody.velocity = Vector2.up * bulletSpeed;
 
         onScoreUpdate.AddListener(ScoreManager.updateScore);
+        onEnemylivesUpdate.AddListener(LivesManager.updateEnemyLives);
 
     }
 
@@ -50,8 +52,11 @@ public class BulletScript : MonoBehaviour
         }
         if (col.CompareTag("Enemy"))
         {
+            onEnemylivesUpdate.Invoke();
+
             Debug.Log("Enemy has been hit");
             //when enemy is hit destory the gameObject
+
             Destroy(col.gameObject);
             //invokes scoreUpdate function in the score Manager component 
             onScoreUpdate.Invoke(col.gameObject.GetComponent<EnemyScript>().scoreValue);

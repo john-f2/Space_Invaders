@@ -32,4 +32,9 @@ public class ShipMovementScript : MonoBehaviour
         xMovement = Input.GetAxis("Horizontal");
         shipRigidBody.velocity = new Vector2(xMovement * playerSpeed, shipRigidBody.velocity.y);
     }
+
+    public void ResetToMiddle()
+    {
+        this.shipRigidBody.MovePosition(new Vector2(0, -4));
+    }
 }
