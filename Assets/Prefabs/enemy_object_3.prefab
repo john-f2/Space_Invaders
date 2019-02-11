@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7071671190531379363}
   - component: {fileID: 6963310447154783868}
   - component: {fileID: 7836790352370075579}
+  - component: {fileID: 7863144462025044966}
   m_Layer: 0
   m_Name: enemy_object_3
   m_TagString: Enemy
@@ -122,3 +123,24 @@ MonoBehaviour:
   enemyBulletPrefab: {fileID: 8987786443428768016, guid: 59c1252416e744e6ca7cd47a718c14d3,
     type: 3}
   scoreValue: 40
+--- !u!50 &7863144462025044966
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2789885887768207836}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
