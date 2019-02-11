@@ -24,7 +24,9 @@ public class EnemySpawner : MonoBehaviour
     //used in Enemy shooting to choose a col to shoot from 
     //if the col has no more enemies, then the col is removed from the array 
     int[] hasEnemies = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
+    Vector2 move;
+    bool right = false;
+    bool down = false;
     private void Awake()
     {
         waitTime += Random.Range(1.0f, 4.0f);
@@ -36,23 +38,62 @@ public class EnemySpawner : MonoBehaviour
     {
         initEnemyDict();
         instantiateEnemyDict();
-
-
-
         
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > waitTime)
+        move = Vector2.left *Time.deltaTime;
+        if (Time.time > waitTime)
         {
             enemyShooting();
         }
-
+        for (int i = 0; i < 11; i++)
+        {
+            for(int j =0; j < enemyDictionary[i].Count; j++)
+            {
+                if (enemyDictionary[i][j] == null)
+                    continue;
+                if (enemyDictionary[i][j].GetComponent<Transform>().position.x <= -10)
+                {
+                    right = true;
+                    shiftDown();
+                }
+                if(right)
+                {
+                    move = Vector2.right * Time.deltaTime;
+                }
+                if(enemyDictionary[i][j].GetComponent<Transform>().position.x > 10)
+                {
+                    right = false;
+                    shiftDown();
+                }
+                enemyDictionary[i][j].GetComponent<Transform>().Translate(move);
+                
+            }
+        }
+  
 
     }
-
+    /*
+     * shifts the enemies down
+     */
+    void shiftDown()
+    {
+        for (int i = 0; i < 11; i++)
+        {
+            for (int j = 0; j < enemyDictionary[i].Count; j++)
+            {
+                if (enemyDictionary[i][j] == null)
+                    continue;
+                enemyDictionary[i][j].GetComponent<Transform>().Translate(Vector2.down * Time.deltaTime);
+            }
+        }
+    }
     /* Initiates the enemy dictionary
      * creates a dictionary with 11 keys (representing the 11 cols of enemies)
      * each col has 5 enemies with in 
@@ -144,6 +185,5 @@ public class EnemySpawner : MonoBehaviour
             Debug.Log("break");
         }
     }
-
 
 }
