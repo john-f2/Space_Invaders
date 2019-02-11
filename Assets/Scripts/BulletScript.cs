@@ -22,6 +22,7 @@ public class BulletScript : MonoBehaviour
     //unity event for score update
     public IntUnityEvent onScoreUpdate = new IntUnityEvent();
     public UnityEvent onEnemylivesUpdate = new UnityEvent();
+    public GameObject playerShip;
 
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class BulletScript : MonoBehaviour
 
         onScoreUpdate.AddListener(ScoreManager.updateScore);
         onEnemylivesUpdate.AddListener(LivesManager.updateEnemyLives);
+        this.playerShip = GameObject.Find("player_object");
 
     }
 
@@ -48,11 +50,13 @@ public class BulletScript : MonoBehaviour
         //reduces the amount of stray bullets
         if (col.CompareTag("bulletNet"))
         {
+            this.setCanShootToTrue();
             Destroy(this.gameObject);
         }
         if (col.CompareTag("Enemy"))
         {
             onEnemylivesUpdate.Invoke();
+            this.setCanShootToTrue();
 
             Debug.Log("Enemy has been hit");
             //when enemy is hit destory the gameObject
@@ -62,6 +66,10 @@ public class BulletScript : MonoBehaviour
             onScoreUpdate.Invoke(col.gameObject.GetComponent<EnemyScript>().scoreValue);
             Destroy(this.gameObject);
         }
+    }
 
+    private void setCanShootToTrue()
+    {
+        this.playerShip.GetComponent<ShipShootingScript>().canShoot = true;
     }
 }
