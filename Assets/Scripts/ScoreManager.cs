@@ -29,6 +29,7 @@ public class ScoreManager : MonoBehaviour
     {
         ScoreText = ScoreUIObject.GetComponent<TextMeshProUGUI>();
         instance = this;
+        score = 0;
     }
 
     // Start is called before the first frame update
