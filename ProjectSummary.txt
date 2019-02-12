@@ -1,0 +1,41 @@
+-----TEAM-----
+- team name: Alabama
+- members
+  - David John Lee
+  - John Fu
+  - Joseph Christopher Chavarria
+- github: https://github.com/john-f2/Space_Invaders
+
+-----BASIC REQUIREMENTS-----
+- player
+  - shape
+  - movement
+  - shooting
+    - when bullet is instantiated, a boolean variable - "canShoot" is set to false and is set back to true when a bullet hits an enemy or bullet is destroyed
+  - death
+    - if number of player lives is 0, load the end menu scene
+- enemies
+  - shape
+  - movement
+  - shooting
+  - death
+- game over
+  - if number of player lives is 0, load the end menu scene
+  - if bottom row of enemies collides with the "EnemyWinCondition" box collider, end menu scene is loaded
+- UI
+  - start menu
+    - start menu is its own scene
+    - "Start" loads the game scene
+    - "Quit" does Application.Quit();
+  - in game
+  - game over
+    - a new scene for when the game is over
+    - "Play Again" loads a fresh game scene
+    - "Quit" does Application.Quit();
+- winning
+
+-----EXTRA CREDIT-----
+- shield bases
+- UFO
+- difficulty ramp-up and level advance
+- pause menu
