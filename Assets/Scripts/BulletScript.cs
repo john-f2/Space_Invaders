@@ -72,6 +72,7 @@ public class BulletScript : MonoBehaviour
             int scoreToAdd = scoreValues[Random.Range(0, 5)];
             onScoreUpdate.Invoke(scoreToAdd);
             Destroy(this.gameObject);
+            this.setCanShootToTrue();
 
         }
     }
