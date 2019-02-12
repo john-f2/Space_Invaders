@@ -108,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float nextUFOSpawnTime()
     {
-        return Time.time + Random.Range(6.0f, 10.0f);
+        return Time.time + Random.Range(6.0f, 12.0f);
     }
 
     //spawns ufo and gives the ufo movement 
