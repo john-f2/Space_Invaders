@@ -66,6 +66,14 @@ public class BulletScript : MonoBehaviour
             onScoreUpdate.Invoke(col.gameObject.GetComponent<EnemyScript>().scoreValue);
             Destroy(this.gameObject);
         }
+        if(col.CompareTag("UFO"))
+        {
+            int[] scoreValues = { 100, 150, 200, 250, 300 };
+            int scoreToAdd = scoreValues[Random.Range(0, 5)];
+            onScoreUpdate.Invoke(scoreToAdd);
+            Destroy(this.gameObject);
+
+        }
     }
 
     private void setCanShootToTrue()

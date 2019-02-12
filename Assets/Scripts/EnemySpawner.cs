@@ -12,9 +12,11 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab1;
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
+    public GameObject UFO;
 
     //wait time variable, used to delay enemy shooting
     float waitTime = 0.0f;
+    float ufoSpawnTime;
 
     //Enemy Dictionary, used to store the enemies 
     //each list represents a col of enemies 
@@ -38,8 +40,8 @@ public class EnemySpawner : MonoBehaviour
     {
         initEnemyDict();
         instantiateEnemyDict();
-        
-
+        //gets the next ufo spawntime
+        ufoSpawnTime = this.nextUFOSpawnTime();
 
 
     }
@@ -47,6 +49,15 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Time.time > ufoSpawnTime)
+        {
+            //gives a huge spawn time so that it doesnt spawn a bunch of them 
+            ufoSpawnTime = 10000000000.0f;
+            spawnUfo();
+
+        }
+
         move = Vector2.left *Time.deltaTime;
         if (Time.time > waitTime)
         {
@@ -93,6 +104,26 @@ public class EnemySpawner : MonoBehaviour
                 enemyDictionary[i][j].GetComponent<Transform>().Translate(Vector2.down * Time.deltaTime);
             }
         }
+    }
+
+    private float nextUFOSpawnTime()
+    {
+        return Time.time + Random.Range(4.0f, 10.0f);
+    }
+
+    //spawns ufo and gives the ufo movement 
+    private void spawnUfo() 
+    {
+
+        GameObject ufo = Instantiate(UFO, new Vector3(-11.98f, 5.14f, 0.0f), Quaternion.identity);
+        ufo.GetComponent<UfoScript>().reachedEndEvent.AddListener(ufoEvent);
+
+    }
+
+    //gets a new spawn timer 
+    public void ufoEvent()
+    {
+        ufoSpawnTime = this.nextUFOSpawnTime();
     }
     /* Initiates the enemy dictionary
      * creates a dictionary with 11 keys (representing the 11 cols of enemies)
