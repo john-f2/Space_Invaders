@@ -69,7 +69,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (enemyDictionary[i][j] == null)
                     continue;
-                if (enemyDictionary[i][j].GetComponent<Transform>().position.x <= -10)
+                if (enemyDictionary[i][j].GetComponent<Transform>().position.x <= -9)
                 {
                     right = true;
                     shiftDown();
@@ -78,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     move = Vector2.right * Time.deltaTime;
                 }
-                if(enemyDictionary[i][j].GetComponent<Transform>().position.x > 10)
+                if(enemyDictionary[i][j].GetComponent<Transform>().position.x > 9)
                 {
                     right = false;
                     shiftDown();
